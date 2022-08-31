@@ -1,0 +1,43 @@
+        <div class="input">
+          Арыгінальны рэестр слоўніка<br/>
+          <i>алфавітны парадак:</i> ${HEADER_ORIG_HEADERS}<br/>
+          <i>адваротны парадак:</i> ${HEADER_ORIG_HEADERS_REVERSE}
+        </div>
+        <div class="input">
+          Асучаснены рэестр слоўніка<br/>
+          <i>алфавітны парадак:</i> ${HEADER_NEW_HEADERS}<br/>
+          <i>адваротны парадак:</i> ${HEADER_NEW_HEADERS_REVERSE}
+        </div>
+        <div class="input">
+          Паказаць слоўнік: ${HEADER_ORIG_HEADERS_SHOW}<br/>
+        </div>
+        <form class="form-inline input" action="javascript:false;" style="text-align: center">
+          <label>Пошук: </label>
+          <div class="form-check form-check-inline">
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="sel();">
+            <label class="form-check-label" for="inlineRadio2"><i>па загаловачным слове</i></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" onclick="sel();">
+            <label class="form-check-label" for="inlineRadio3"><i>па загаловачным слове і па тэксце</i></label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked onclick="sel();">
+            <label class="form-check-label" for="inlineRadio1"><i>па асучасненых і ключавых словах</i></label>
+          </div>
+        </form>
+        <form class="form-inline input" id="searchform" action="javascript:false;">
+          <input type="text" class="form-control" placeholder="Слова..." id="word">
+          <div class="form-check form-check-inline"></div>
+          <div class="form-check form-check-inline" id="inLettersButtons" style="display: none;">
+            <button id="inI" onclick="app('и'); return false;">и</button>
+            <button id="inSch" onclick="app('щ'); return false;">щ</button>
+            <button id="inTv" onclick="app('ъ'); return false;">ъ</button>
+            <button id="inJer" onclick="app('ѣ'); return false;">ѣ</button>
+          </div>
+          <div class="form-check form-check-inline"></div>
+          <button type="submit" class="btn btn-primary" id="btnSearch">Пошук</button>
+        </form>
+        <p style="font-size: 75%;">Для пошуку форм слова выкарыстоўвайце зорачку, напр.: <i>сварыц*</i> (падрабязней гл. <a href="art3.html">як карыстацца</a>).</p>

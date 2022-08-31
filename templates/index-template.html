@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="be">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" type="image/vnd.microsoft.icon" href="title.jpg" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap-5.2.0.min.css">
+<#include "index-head.html">
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../bootstrap-5.2.0.bundle.min.js"></script>
+    <script src="funcs.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <a class="header-link" href="index.html">
+            <div class="header">
+<#include "index-header.html">
+                <span style="clear: both"></span>
+            </div>
+        </a>
+    </div>
+    <div class="container">
+      <div id="input" style="display: none;">
+<#include "index-input.html">
+      </div>
+      <div id="intro">
+        <div>
+          <hr/>
+        </div>
+        <div class="accordion accordion-flush" id="accordionIntro">
+          ${INTROS}
+        </div>
+      </div>
+      <div class="row" id="listWords">
+      </div>
+      <div id="out">
+          ${ARTICLES}
+      </div>
+      <div class="error input" id="error" style="display: none;">
+      </div>
+    </div>
+    <div class="container divider">
+        <hr/>
+        <div class="footer">
+<#include "index-footer.html">
+            <p class="text-center"><a href="https://github.com/Belarus/Slouniki">https://github.com/Belarus/Slouniki</a></p>
+        </div>
+    </div>
+<#include "index-script.html">
+<div id="titleshow" style="display: none; position: absolute; border: 1px solid #EEE; background-color: #000; color: #DDD; padding: 2px;"><!-- need separate div due bug in browsers for display opaque div via css solution --></div>
+<script>
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    $('#install_link').show();
+  });
+  let deferredPrompt;
+  function install() {
+    $('#install_link').hide();
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        gtag('event', 'installation', {
+             'event_category': 'install',
+             'event_label': 'allow'
+        });
+      } else {
+        gtag('event', 'installation', {
+             'event_category': 'install',
+             'event_label': 'decline'
+        });
+      }
+    });
+  }
+  window.addEventListener('appinstalled', e => {
+  });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X0SX92MM47"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X0SX92MM47');
+</script>
+</body>
+</html>
